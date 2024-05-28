@@ -98,6 +98,14 @@ public class AliOssUploadManager {
         metadata.setContentType("application/octet-stream");
         put.setMetadata(metadata);
 
+        put.setCallbackParam(new HashMap<String, String>() {
+          {
+              put("callbackUrl", options.getString('callbackUrl'));
+              put("callbackBodyType", "application/json");
+              put("callbackBody", options.getString('callbackBody'));
+          }
+      })
+
         // set callback
         put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
             @Override

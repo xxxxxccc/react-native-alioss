@@ -1,15 +1,15 @@
-declare type OSSinit = {
+type OSSinit = {
     maxRetryCount: number;
     timeoutIntervalForRequest: number;
     timeoutIntervalForResource: number;
 };
-declare type OssListOptions = {
+type OssListOptions = {
     prefix: string;
     marker?: string;
     maxKeys?: string;
     delimiter?: string;
 };
-declare type AppendType = {
+type AppendType = {
     appendPosition: number;
     contentType: string;
     contentMd5: string;
@@ -82,7 +82,7 @@ declare const AliyunOSS: {
     /**
      * Asynchronously getAsyncObjects
      */
-    asyncListObjects(bucketName: string, options?: OssListOptions | undefined): Promise<any>;
+    asyncListObjects(bucketName: string, options?: OssListOptions): Promise<any>;
     /**
      * Asynchronously asyncCopyObject
      */
