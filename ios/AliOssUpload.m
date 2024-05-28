@@ -20,7 +20,7 @@ RCT_REMAP_METHOD(asyncUpload, asyncUploadWithBucketName:(NSString *)bucketName o
 
         NSString *callbackUrl = options[@"callbackUrl"] ?: @"<default callback address>";
         NSString *callbackBody = options[@"callbackBody"] ?: @"<your callback body>";
-        request.callbackParam = @{
+        put.callbackParam = @{
                           @"callbackUrl": callbackUrl,
                           @"callbackBody": callbackBody
                           };
