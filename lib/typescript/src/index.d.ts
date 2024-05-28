@@ -120,3 +120,4 @@ declare const AliyunOSS: {
     removeEventListener(event: any): void;
 };
 export { AliyunOSS };
+//# sourceMappingURL=index.d.ts.map

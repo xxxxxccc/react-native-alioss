@@ -22,9 +22,7 @@
     "!ios/build"
   ],
   "scripts": {
-    "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
     "release": "dotenv release-it",
     "example": "yarn --cwd example",
@@ -43,6 +41,7 @@
   },
   "homepage": "https://github.com/xxxxxccc/react-native-alioss.git#readme",
   "devDependencies": {
+    "@types/react": "^18.3.3",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "pod-install": "^0.1.0",
