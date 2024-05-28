@@ -1,6 +1,6 @@
 //
 //  AliOssBucket.m
-//  Created by hfan
+//  Created by xc
 
 #import "AliOssBucket.h"
 
@@ -58,7 +58,7 @@ RCT_REMAP_METHOD(asyncListBuckets, resolver:(RCTPromiseResolveBlock)resolve reje
 RCT_REMAP_METHOD(asyncGetBucketACL, bucketName:(NSString*)bucketName resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     OSSGetBucketACLRequest *getBucketACL = [OSSGetBucketACLRequest new];
     getBucketACL.bucketName = bucketName;
-    
+
     OSSTask * osstask = [self.client getBucketACL:getBucketACL];
     [osstask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {

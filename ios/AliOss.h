@@ -1,6 +1,6 @@
 //
 //  AliOss.h
-//  Created by hfan
+//  Created by xc
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>

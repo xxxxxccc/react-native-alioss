@@ -1,6 +1,6 @@
 //
 //  AliOssLog.h
-//  Created by hfan
+//  Created by xc
 
 #import "AliOss.h"
 

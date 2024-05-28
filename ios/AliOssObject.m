@@ -1,6 +1,6 @@
 //
 //  AliOssObject.m
-//  Created by hfan
+//  Created by xc
 
 #import "AliOssObject.h"
 
@@ -16,23 +16,23 @@ RCT_REMAP_METHOD(asyncListObjects, bucketName:(NSString*)bucketName options:(NSD
     // 可选参数，具体含义参考：https://docs.aliyun.com/#/pub/oss/api-reference/bucket&GetBucket
     // getBucket.marker = @"";
     // getBucket.delimiter = @"";
-    
+
     if([options objectForKey:@"delimiter"]) {
         getBucket.delimiter = [options objectForKey:@"delimiter"];
     }
-    
+
     if([options objectForKey:@"marker"]) {
         getBucket.marker = [options objectForKey:@"marker"];
     }
-    
+
     if([options objectForKey:@"prefix"]) {
         getBucket.prefix = [options objectForKey:@"prefix"];
     }
-    
+
     if([options objectForKey:@"maxkeys"]) {
         getBucket.maxKeys = [options objectForKey:@"maxkeys"];
     }
-    
+
     OSSTask * getBucketTask = [self.client getBucket:getBucket];
     [getBucketTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {

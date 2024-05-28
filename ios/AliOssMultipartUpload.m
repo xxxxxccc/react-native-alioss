@@ -1,6 +1,6 @@
 //
 //  AliOssMultipartUpload.m
-//  Created by hfan
+//  Created by xc
 
 #import "AliOssMultipartUpload.h"
 
@@ -48,7 +48,7 @@ RCT_REMAP_METHOD(multipartUpload, withBucketName:(NSString *)bucketName objectKe
     }
     //分片大小
     uint64_t offset = fileSize/chuckCount;
-    
+
     for (int i = 1; i <= chuckCount; i++) {
         OSSUploadPartRequest * uploadPart = [OSSUploadPartRequest new];
         uploadPart.bucketName = bucketName;
@@ -116,7 +116,7 @@ RCT_REMAP_METHOD(abortMultipartUpload,withBucketName: (NSString*)bucketName obje
  * list parts
  */
 RCT_REMAP_METHOD(listParts, withBucketName:(NSString*)bucketName withObjectKey: (NSString*)objectKey uploadId:(NSString*)uploadId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
-    
+
     OSSListPartsRequest * listParts = [OSSListPartsRequest new];
     listParts.bucketName = bucketName;
     listParts.objectKey = objectKey;

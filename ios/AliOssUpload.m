@@ -1,6 +1,6 @@
 //
 //  AliOssUpload.m
-//  Created by hfan
+//  Created by xc
 
 #import "AliOssUpload.h"
 

@@ -1,6 +1,6 @@
 //
 //  AliOssDownload.m
-//  Created by hfan
+//  Created by xc
 
 #import "AliOssDownload.h"
 #import <React/RCTLog.h>
@@ -10,20 +10,20 @@
 
 /**
  Asynchronous downloading
- 
+
  */
 RCT_REMAP_METHOD(asyncDownload, asyncDownloadWithBucketName:(NSString *)bucketName objectKey:(NSString *)objectKey filepath:(NSString *)filepath options:(NSDictionary*)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject){
-    
+
     OSSGetObjectRequest * get = [OSSGetObjectRequest new];
-    
+
     //required fields
     get.bucketName = bucketName;
     get.objectKey = objectKey;
-    
+
     //图片处理情况
     NSString *xOssProcess = [RCTConvert NSString:options[@"x-oss-process"]];
     get.xOssProcess = xOssProcess;
-    
+
     //optional fields
     get.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
         NSLog(@"%lld, %lld, %lld", bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
@@ -34,18 +34,18 @@ RCT_REMAP_METHOD(asyncDownload, asyncDownloadWithBucketName:(NSString *)bucketNa
                                                                @"totalSize": [NSString stringWithFormat:@"%lld",totalBytesExpectedToWrite]}];
         }
     };
-    
+
     if (![[filepath oss_trim] isEqualToString:@""]) {
         get.downloadToFileURL = [NSURL fileURLWithPath:[filepath stringByAppendingPathComponent:objectKey]];
     } else {
         NSString *docDir = [self getDocumentDirectory];
         get.downloadToFileURL = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:objectKey]];
     }
-    
+
     OSSTask * getTask = [self.client getObject:get];
-    
+
     [getTask continueWithBlock:^id(OSSTask *task) {
-        
+
         if (!task.error) {
             NSLog(@"download object success!");
             OSSGetObjectResult *result = task.result;
