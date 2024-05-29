@@ -129,9 +129,8 @@ public class AliOssUploadManager {
                 Log.d("RequestId", result.getRequestId());
 
                 Object taskResult = result.getResult();
-                String resultId = taskResult.getId();
 
-                promise.resolve(resultId);
+                promise.resolve(taskResult);
             }
 
             @Override
