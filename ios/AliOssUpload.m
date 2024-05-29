@@ -45,10 +45,10 @@ RCT_REMAP_METHOD(asyncUpload, asyncUploadWithBucketName:(NSString *)bucketName o
         OSSTask *putTask = [self.client putObject:put];
 
         [putTask continueWithBlock:^id(OSSTask *task) {
-
             if (!task.error) {
+                OSSPutObjectResult * result = task.result;
                 NSLog(@"upload object success!");
-                resolve(task.result.serverReturnJsonString);
+                resolve(result.serverReturnJsonString);
             } else {
                 NSLog(@"upload object failed, error: %@" , task.error);
                 reject(@"Error", @"Upload failed", task.error);
