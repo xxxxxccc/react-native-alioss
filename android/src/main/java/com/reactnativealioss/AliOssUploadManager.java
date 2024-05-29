@@ -128,7 +128,7 @@ public class AliOssUploadManager {
                 Log.d("ETag", result.getETag());
                 Log.d("RequestId", result.getRequestId());
 
-                Object taskResult = result.getResult();
+                String taskResult = result.getServerCallbackReturnBody();
 
                 promise.resolve(taskResult);
             }
