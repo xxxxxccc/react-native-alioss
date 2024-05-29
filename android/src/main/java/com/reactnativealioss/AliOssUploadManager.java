@@ -127,7 +127,11 @@ public class AliOssUploadManager {
                 Log.d("PutObject", "UploadSuccess");
                 Log.d("ETag", result.getETag());
                 Log.d("RequestId", result.getRequestId());
-                promise.resolve(result.getTaskResult());
+
+                Object taskResult = result.getResult();
+                String resultId = taskResult.getId();
+
+                promise.resolve(resultId);
             }
 
             @Override
