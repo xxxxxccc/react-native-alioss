@@ -6,7 +6,7 @@ buildscript {
         }
 
         dependencies {
-            classpath 'com.android.tools.build:gradle:7.0.0'
+            classpath 'com.android.tools.build:gradle:7.3.0'
         }
     }
 }
@@ -19,9 +19,9 @@ def safeExtGet(prop, fallback) {
 
 android {
     compileSdkVersion safeExtGet('Alioss_compileSdkVersion', 30)
-    buildToolsVersion safeExtGet('Alioss_buildToolsVersion', '29.0.2')
+    buildToolsVersion safeExtGet('Alioss_buildToolsVersion', '30.0.0')
     defaultConfig {
-        minSdkVersion safeExtGet('Alioss_minSdkVersion', 16)
+        minSdkVersion safeExtGet('Alioss_minSdkVersion', 14)
         targetSdkVersion safeExtGet('Alioss_targetSdkVersion', 30)
         versionCode 1
         versionName "1.0"
@@ -55,5 +55,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.13'
+    implementation "com.aliyun.dpa:oss-android-sdk:2.9.19"
 }
