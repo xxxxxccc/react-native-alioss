@@ -101,7 +101,7 @@ public class AliOssUploadManager {
         put.setCallbackParam(new HashMap<String, String>() {
           {
               put("callbackUrl", options.getString("callbackUrl"));
-              put("callbackBodyType", "application/json");
+              put("callbackBodyType", "application/x-www-form-urlencoded");
               put("callbackBody", options.getString("callbackBody"));
           }
       });
