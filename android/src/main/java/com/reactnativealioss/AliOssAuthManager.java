@@ -110,9 +110,9 @@ public class AliOssAuthManager {
         OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(accessKeyId, accessKeySecret, securityToken);
 
         // init conf
-        ClientConfiguration conf = ConfigUtils.initAuthConfig(configuration);
+        // ClientConfiguration conf = ConfigUtils.initAuthConfig(configuration);
 
-        mOSS = new OSSClient(mContext, endPoint, credentialProvider, conf);
+        mOSS = new OSSClient(mContext, endPoint, credentialProvider);
         Log.d("AliyunOSS", "OSS initWithKey ok!");
         mAuthListener.onAuthFinished(mOSS);
     }
